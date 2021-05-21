@@ -25,7 +25,7 @@ namespace ServiTech.Controllers
             return View(Productos);
         }
 
-        [Authorize(Roles = "Admin")]
+      
         public IActionResult Agregar()
         {
             return View();

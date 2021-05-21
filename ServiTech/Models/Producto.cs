@@ -13,10 +13,37 @@ namespace ServiTech.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public int Id { get; set; }
+
+      
         public string Nombre { get; set; }
+
         public string Descripcion { get; set; }
+
         public string Precio { get; set; }
+
         public string Cantidad { get; set; }
+
         public string Imagen { get; set; }
+
+        public string Marca { get; set; }
+
+        [Display(Name = "Tipo de Producto")]
+        public string TipoProducto { get; set; }
+
+        [Display(Name = "Categoria de Producto")]
+        public string ProductoCategoria { get; set; }
+
+        [Display(Name = "Fecha de registro")]
+        public DateTime? FechaRegistro { get; set; }
+
+        [Display(Name = "Fecha Activo")]
+        public DateTime? FechaActivo { get; set; }
+
+
+
+
+
+
+
     }
 }

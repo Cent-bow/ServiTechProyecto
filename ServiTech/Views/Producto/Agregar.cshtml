@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "/Views/Shared/Layout/_LayoutAdmi.cshtml";
+    ViewData["Title"] = "Agregar Producto";
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar</h2>
+
+<hr />
+
+<form action="@Url.Action("Agregar")" method="post">
+
+    <input type="text" name="Nombre" placeholder="Escribe el nombre del producto." class="form-control" />
+    <br />
+    <input type="text" name="Descripcion" placeholder="Escribe la descripción del producto." class="form-control" />
+    <br />
+    <input type="text" name="Imagen" placeholder="Escribe la url de la imagen." class="form-control" />
+    <br />
+    <input type="text" name="Precio" placeholder="Escribe el precio del producto." class="form-control" />
+    <br />
+    <input type="text" name="Cantidad" placeholder="Escribe la cantidad del producto." class="form-control" />
+    <br />
+
+    <input class="btn btn-success" type="submit" value="Agregar" /> <br />
+
+    <a href="/Administrador/IndxAdmi"> <input type="submit" class="btn btn-success mb-4" value="Cancelar" /></a>
+</form>
+

@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    @model IEnumerable<Producto>
+    Layout = "/Views/Shared/Layout/_LayoutAdmi.cshtml";
+    ViewData["Title"] = "Home Producto";
+}
+
+
+<header>
+    <h1>Inventario </h1>
+    
+    
+
+</header>
+
+
+<br />
+<body>
+
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(item => item.Nombre)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(item => item.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(item => item.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(item => item.Imagen)
+
+            </th>
+
+            <th></th>
+
+
+
+
+        </tr>
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    @item.Precio
+                </td>
+                <td>
+                    @item.Descripcion
+                </td>
+                <td>
+                    <img class="img-responsive" id="image" src="@item.Imagen" />
+                </td>
+
+                <td>
+
+                    <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a>
+                    <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a>
+                    <a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a>
+
+            </tr>
+        }
+
+    </table>
+    <br />
+
+    <a href="@Url.Action("Agregar")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
+
+    <style>
+        #image {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+
+</body>
