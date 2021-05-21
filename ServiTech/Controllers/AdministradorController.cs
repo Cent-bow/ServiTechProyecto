@@ -20,7 +20,8 @@ namespace ServiTech.Controllers
         [Authorize (Roles = "Admin")]
         public IActionResult IndexAdmi()
         {
-            return View();
+            
+            return View("/Administrador/IndexAdmi");
         }
 
        
