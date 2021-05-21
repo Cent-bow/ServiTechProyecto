@@ -21,7 +21,7 @@ namespace ServiTech.Controllers
         public IActionResult IndexAdmi()
         {
             
-            return View("/Administrador/IndexAdmi");
+            return View();
         }
 
        
