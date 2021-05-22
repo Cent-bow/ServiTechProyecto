@@ -116,7 +116,7 @@
                 @Html.DisplayNameFor(model => model.Tipo)
             </th>
             @*<th></th>*@
-            <th>Botones</th>
+            <th></th>
         </tr>
 
         @foreach (var item in Model)
@@ -128,9 +128,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
+      
         <td>
             @Html.DisplayFor(modelItem => item.Marca)
         </td>
@@ -142,11 +140,11 @@
             <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
             <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
         </td>
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
+        </td>*@
 
 
     </tr>
@@ -156,11 +154,11 @@
 
     <a href="@Url.Action("Agregar")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
 
-    @*<style>
+    <style>
         #image {
             width: 400px;
-            height: 300px;
+            height: 350px;
         }
-    </style>*@
+    </style>
 
 </body>
