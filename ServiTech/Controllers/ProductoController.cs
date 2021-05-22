@@ -65,6 +65,34 @@ namespace ServiTech.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Modificar(int id)
+        {
+            var output = _db.Productos.Find(id);
+            return View(output);
+        }
+
+        [HttpPost]
+
+        public IActionResult Modificar(Producto input)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(input);
+        }
+
+        public IActionResult Detalle(int id)
+        {
+            var output = _db.Productos.Find(id);
+            return View(output);
+        }
+
 
     }
 }

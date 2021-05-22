@@ -1,13 +1,14 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model ServiTech.Models.Producto
 @{
     Layout = "/Views/Shared/Layout/_LayoutAdmi.cshtml";
     ViewData["Title"] = "Agregar Producto";
     ViewBag.Title = "Agregar";
 }
 
-<h2>Agregar</h2>
+@*<h2>Agregar</h2>
 
 <hr />
 
@@ -21,11 +22,154 @@
     <br />
     <input type="text" name="Precio" placeholder="Escribe el precio del producto." class="form-control" />
     <br />
+    <br />
+    <input type="text" name="Marca" placeholder="Escribe la marca del producto." class="form-control" />
+    <br />
     <input type="text" name="Cantidad" placeholder="Escribe la cantidad del producto." class="form-control" />
     <br />
 
+
+
+     <div class="form-group">
+        <label class="col-2">Tipo de Producto</label>
+        <div class="col-4">
+            @Html.DropDownListFor(a => a.Tipo, Html.GetEnumSelectList<ServiTech.Models.TipoProducto>(), new { @class = "form-control" })
+        </div>
+    </div>
+
+
+    <br /> <div class="form-group">
+        <label class="col-2">Categoria</label>
+        <div class="col-4">
+            @Html.DropDownListFor(a => a.Categoria, Html.GetEnumSelectList<ServiTech.Models.ProductoCategoria>(), new { @class = "form-control" })
+        </div>
+    </div>
+
     <input class="btn btn-success" type="submit" value="Agregar" /> <br />
 
-    <a href="/Administrador/IndxAdmi"> <input type="submit" class="btn btn-success mb-4" value="Cancelar" /></a>
-</form>
+    <br /> <a href="/Administrador/IndxAdmi"> <input type="submit" class="btn btn-success mb-4" value="Cancelar" /></a>
 
+</form>*@
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Agregar al Inventario</h4>
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Imagen, "Escriba la URL de la imagen del producto", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBoxFor(a => a.Imagen, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre, "Nombre del Producto", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBoxFor(a => a.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion, "Descripcion del producto", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBoxFor(a => a.Descripcion, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Marca, "Marca", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBoxFor(a => a.Marca, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tipo, "Tipo de Producto", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Tipo, Html.GetEnumSelectList<ServiTech.Models.TipoProducto>(), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Categoria, "Categoria del Producto", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Categoria, Html.GetEnumSelectList<ServiTech.Models.ProductoCategoria>(), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FechaRegistro, "Fecha de registro", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FechaActivo, "Fecha activo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FechaActivo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FechaActivo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cantidad, "Cantidad", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBoxFor(a => a.Cantidad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Precio, "Precio Venta", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.TextBoxFor(a => a.Precio, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Crear" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+
+    <a href=" @Url.ActionLink("Regresar al inventario", "Index")"><input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
+
+
+    @Html.ActionLink("Regresar al inventario", "Index")
+</div>

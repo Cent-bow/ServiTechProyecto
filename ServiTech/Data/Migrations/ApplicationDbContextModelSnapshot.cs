@@ -229,6 +229,9 @@ namespace ServiTech.Data.Migrations
                     b.Property<string>("Cantidad")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Categoria")
+                        .HasColumnType("int");
+
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
@@ -245,18 +248,13 @@ namespace ServiTech.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Precio")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProductoCategoria")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TipoProducto")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

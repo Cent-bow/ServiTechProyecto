@@ -3,25 +3,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ServiTech.Data.Migrations
 {
-    public partial class o : Migration
+    public partial class tablas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "Precio",
-                table: "Productos",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
+            migrationBuilder.DropColumn(
+                name: "ProductoCategoria",
+                table: "Productos");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "Nombre",
+            migrationBuilder.DropColumn(
+                name: "TipoProducto",
+                table: "Productos");
+
+            migrationBuilder.AddColumn<int>(
+                name: "Categoria",
                 table: "Productos",
                 nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
+                defaultValue: 0);
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "FechaActivo",
@@ -32,11 +30,21 @@ namespace ServiTech.Data.Migrations
                 name: "FechaRegistro",
                 table: "Productos",
                 nullable: true);
+
+            migrationBuilder.AddColumn<int>(
+                name: "Tipo",
+                table: "Productos",
+                nullable: false,
+                defaultValue: 0);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
+                name: "Categoria",
+                table: "Productos");
+
+            migrationBuilder.DropColumn(
                 name: "FechaActivo",
                 table: "Productos");
 
@@ -44,19 +52,21 @@ namespace ServiTech.Data.Migrations
                 name: "FechaRegistro",
                 table: "Productos");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "Precio",
-                table: "Productos",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string));
+            migrationBuilder.DropColumn(
+                name: "Tipo",
+                table: "Productos");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "Nombre",
+            migrationBuilder.AddColumn<string>(
+                name: "ProductoCategoria",
                 table: "Productos",
                 type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string));
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "TipoProducto",
+                table: "Productos",
+                type: "nvarchar(max)",
+                nullable: true);
         }
     }
 }

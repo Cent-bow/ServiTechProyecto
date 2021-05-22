@@ -14,8 +14,10 @@
 
     <h1> ¿Esta seguro que desea eliminar este producto?</h1>
 
-    <button type="submit" class="btn btn-danger">Eliminar producto</button> <br/>
+    <br /><h4>Eliminara toda la fila del producto.</h4>
 
-    <a href="@Url.Action("IndexAdmi")"> <input type="submit" class="btn btn-success mb-4 bg-" value="Cancelar" /></a>
+    <button type="submit" class="btn btn-danger">Eliminar producto</button> <br />
+
+    @Html.ActionLink("Regresar al inventario", "Index")
 
 </form>

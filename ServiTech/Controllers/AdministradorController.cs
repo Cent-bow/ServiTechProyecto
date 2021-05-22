@@ -17,17 +17,17 @@ namespace ServiTech.Controllers
             _roleManager = roleManager;
         }
 
-        [Authorize (Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult IndexAdmi()
         {
             
             return View();
         }
 
-       
 
 
-        [Authorize(Roles ="Admin")]
+
+        [Authorize(Roles = "Admin")]
         public IActionResult CrearRole()
         {
             return View();
