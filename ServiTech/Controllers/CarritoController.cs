@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace ServiTech.Controllers
 {
-    public class AccountController : Controller
+    public class CarritoController : Controller
     {
-
         public IActionResult Index()
         {
             return View();
         }
-
-
-
-
     }
 }
