@@ -13,6 +13,8 @@ namespace ServiTech.Data
             : base(options) { }
 
         public DbSet<Producto> Productos { get; set; }
+      
+
 
     }
 }
