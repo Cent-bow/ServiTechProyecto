@@ -28,7 +28,22 @@ namespace ServiTech.Controllers
             return View();
         }
 
-        
+
+        public IActionResult Contactanos()
+        {
+            return View();
+        }
+
+        public IActionResult Sobre()
+        {
+            return View();
+        }
+
+        public IActionResult Tecnologia()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
