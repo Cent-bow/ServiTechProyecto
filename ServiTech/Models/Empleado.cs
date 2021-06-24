@@ -24,6 +24,7 @@ namespace ServiTech.Models
         public int Celular { get; set; }
 
         [DisplayName("Correo Electronico")]
+
         public string Correo { get; set; }
         public string Direccion { get; set; }
         public decimal Sueldo { get; set; }

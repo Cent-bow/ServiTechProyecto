@@ -8,6 +8,11 @@
     ViewData["Title"] = "Inventario";
 }
 
+<link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+<link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+
+
 
 <header>
     <h1>Inventario </h1>
@@ -16,89 +21,90 @@
 
 
 
+
 @*<body>
 
-    <br />
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(item => item.Nombre)
-
-            </th>
-            <th>
-                @Html.DisplayNameFor(item => item.Precio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(item => item.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(item => item.Imagen)
-
-            </th>
-
-        </tr>
-
-
-
-        @foreach (var item in Model)
-        {
+        <br />
+        <table class="table">
             <tr>
-                <td>
-                    @item.Nombre
-                </td>
+                <th>
+                    @Html.DisplayNameFor(item => item.Nombre)
 
-                <td>
-                    @item.Marca
-                </td>
-                <td>
-                    @item.Precio
-                </td>
-                <td>
-                    @item.Descripcion
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </td>
-                <td>
-                    @item.Categoria
-                </td>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(item => item.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(item => item.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(item => item.Imagen)
 
-                <td>
-                    @item.Tipo
-                </td>
-                <td>
-                    <img class="img-responsive" id="image" src="@item.Imagen" />
-                </td>
-
-                <td>
-
-                    <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a>
-                    <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a>
-                    <a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a>
+                </th>
 
             </tr>
-        }
 
-    </table>
-    <br />
 
-    <a href="@Url.Action("Agregar")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
 
-    <style>
-        #image {
-            width: 300px;
-            height: 200px;
-        }
-    </style>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Nombre
+                    </td>
 
-</body>*@
+                    <td>
+                        @item.Marca
+                    </td>
+                    <td>
+                        @item.Precio
+                    </td>
+                    <td>
+                        @item.Descripcion
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                    <td>
+                        @item.Categoria
+                    </td>
+
+                    <td>
+                        @item.Tipo
+                    </td>
+                    <td>
+                        <img class="img-responsive" id="image" src="@item.Imagen" />
+                    </td>
+
+                    <td>
+
+                        <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a>
+                        <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a>
+                        <a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a>
+
+                </tr>
+            }
+
+        </table>
+        <br />
+
+        <a href="@Url.Action("Agregar")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
+
+        <style>
+            #image {
+                width: 300px;
+                height: 200px;
+            }
+        </style>
+
+    </body>*@
 
 <body>
     @*<p>
-        @Html.ActionLink("Agregar nuevo", "Agregar")
-    </p>*@
-    <table class="table">
+            @Html.ActionLink("Agregar nuevo", "Agregar")
+        </p>*@
+    <table class="table" id="TablaProducto">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Imagen)
@@ -121,33 +127,33 @@
 
         @foreach (var item in Model)
         {
-    <tr>
-        <td>
-            <img class="img-responsive" id="image" src="@item.Imagen" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a><br />
-            <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
-            <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>*@
+            <tr>
+                <td>
+                    <img class="img-responsive" id="image" src="@item.Imagen" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a><br />
+                    <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
+                    <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>*@
 
 
-    </tr>
+            </tr>
         }
 
     </table>
@@ -162,3 +168,20 @@
     </style>
 
 </body>
+
+@section scripts{
+
+
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#TablaProducto').DataTable();
+        });
+
+    </script>
+
+}

@@ -19,10 +19,26 @@ namespace ServiTech.Controllers
             _logger = logger;
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(ProductoIndexViewModel input)
         {
-            var Productos = _db.Productos;
-            return View(Productos);
+            IEnumerable<Producto> productos = _db.Productos;
+
+            if (input.TipoProducto == null)
+            {
+                productos = _db.Productos;
+            }
+            else
+            {
+                productos = _db.Productos.Where(a => a.Tipo == input.TipoProducto.Value);
+            }
+
+            if(!string.IsNullOrEmpty(input.Nombres))
+            {
+                productos = _db.Productos.Where(a => a.Nombre.ToUpper().Contains(input.Nombres.ToUpper()));
+            }
+
+           
+            return View(productos);
         }
 
       
@@ -93,6 +109,10 @@ namespace ServiTech.Controllers
             return View(output);
         }
 
+        public ActionResult CrudProducto()
+        {
+            return View();
+        }
 
     }
 }
