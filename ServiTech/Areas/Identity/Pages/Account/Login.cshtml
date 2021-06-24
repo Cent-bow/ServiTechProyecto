@@ -16,13 +16,13 @@
 
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.Email">Correo Electronico</label>
-                    <input asp-for="Input.Email" class="form-control" />
+                    <label asp-for="Input.Email" id="Correos">Correo Electronico</label>
+                    <input asp-for="Input.Email" id="Correo" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password">Contraseña</label>
-                    <input asp-for="Input.Password" class="form-control" />
+                    <label asp-for="Input.Password" id="Contrasena">Contraseña</label>
+                    <input asp-for="Input.Password" id="Contrasenas" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">

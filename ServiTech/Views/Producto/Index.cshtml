@@ -100,61 +100,72 @@
 
     </body>*@
 
-<body>
+
     @*<p>
             @Html.ActionLink("Agregar nuevo", "Agregar")
         </p>*@
+
     <table class="table" id="TablaProducto">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            @*<th></th>*@
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <thead>
             <tr>
-                <td>
-                    <img class="img-responsive" id="image" src="@item.Imagen" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Marca)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tipo)
-                </td>
-                <td>
-                    <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a><br />
-                    <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
-                    <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
-                </td>
-                @*<td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>*@
-
-
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+                @*<th></th>*@
+                <th></th>
             </tr>
-        }
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img class="img-responsive" id="image" src="@item.Imagen" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td>
+                        <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a><br />
+                        <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
+                        <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
+                    </td>
+                    @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>*@
+
+
+                </tr>
+            }
+        </tbody>
 
     </table>
 
@@ -167,7 +178,7 @@
         }
     </style>
 
-</body>
+
 
 @section scripts{
 
