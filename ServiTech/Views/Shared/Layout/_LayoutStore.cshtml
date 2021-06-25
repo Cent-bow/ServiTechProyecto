@@ -1,0 +1,134 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ServiTech</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="~/assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/Nav.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+
+
+    <!-- Navigation-->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light navbar-light ">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+
+                <ul class="navbar-nav d-flex flex-row me-1">
+
+                    <partial name="_LoginPartial" />
+
+                </ul>
+
+
+                <!-- Search -->
+                <div>
+                    <form class="d-flex input-group w-auto">
+
+                        <input type="search"
+                               id="buscador"
+                               class="form-control rounded"
+                               placeholder="Buscar"
+                               aria-label="Search"
+                               aria-describedby="search-addon"
+                               style=" width: 400px;
+                               float: right !important;
+                               " />
+
+                        @*<span class="input-group-text border-0" id="search-addon">
+                                <i class="fas fa-search"></i>
+                            </span>*@
+
+                        <button id="search-button" type="button" class="btn btn-danger">
+                            <i class="fas fa-search"></i>
+                        </button>
+
+                    </form>
+                </div>
+
+
+                <!-- Icons -->
+                <div>
+                    <ul class="navbar-nav d-flex flex-row me-1">
+                        <li class="nav-item me-3 me-lg-0">
+
+
+
+                            <a class="nav-link" href="#">
+                                <span class="badge badge-pill bg-danger">0</span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+
+
+    <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="/Home/Index">ServiTech</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item"><a class="nav-link" href="/Home/Sobre">Sobre nosotros</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="/Home/Contactanos">Contactanos</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="/Producto/NuestrosProductos">Nuestros Productos</a></li>
+                    </ul>
+                    </div>
+            </div>
+        
+                    </nav>
+                    <!-- Page Content-->
+
+                    <section class="py-5">
+                        <div class="container">
+                            <main role="main" class="pb-3">
+                                @RenderBody()
+                            </main>
+                        </div>
+                    </section>
+
+    </body>
+</html>

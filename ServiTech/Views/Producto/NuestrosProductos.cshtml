@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    Layout = "/Views/Shared/Layout/_LayoutStore.cshtml";
+    ViewData["Title"] = "Productos";
+    @model ServiTech.Models.Producto
+}
+
+
+
+<form method="post" action="/Producto/NuestrosProductos" class="form-horizontal">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@Model.Imagen" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Nombre</h5>
+            <p class="card-text">@Model.Descripcion</p>
+            <p>$ @Model.Precio</p>
+            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+        </div>
+    </div>
+</form>

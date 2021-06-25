@@ -45,13 +45,17 @@ namespace ServiTech.Controllers
         public IActionResult Agregar()
         {
             return View();
+              
         }
+
+
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Agregar(Producto producto)
         {
-            if (ModelState.IsValid)
+
+                if (ModelState.IsValid)
             {
                 _db.Entry(producto).State = Microsoft.EntityFrameworkCore.EntityState.Added;
                 // _db.Producto.Add (producto); //
@@ -60,6 +64,8 @@ namespace ServiTech.Controllers
                 return RedirectToAction("Index");
             }
             return View(producto);
+
+            
         }
 
         public IActionResult Eliminar(int id)
@@ -109,10 +115,23 @@ namespace ServiTech.Controllers
             return View(output);
         }
 
-        public ActionResult CrudProducto()
+        public IActionResult NuestrosProductos()
         {
-            return View();
+            var Producto = _db.Productos;
+           
+            return View(Producto);
         }
 
+
+        public IActionResult NuestrosProductos(int id)
+        {
+            var Producto = _db.Productos.Find(id);
+            return View(Producto);
+        }
+
+
+
     }
+
+
 }
