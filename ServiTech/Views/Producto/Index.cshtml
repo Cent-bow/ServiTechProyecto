@@ -3,10 +3,11 @@
 *@
 @{
 
-    @model IEnumerable<Producto>
     Layout = "/Views/Shared/Layout/_LayoutSESION.cshtml";
     ViewData["Title"] = "Inventario";
 }
+
+@model IEnumerable<Producto>
 
 <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
 <link href="~/lib/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
@@ -14,82 +15,86 @@
 
 
 
-<header>
     <h1>Inventario </h1>
 
-</header>
 
 
 
 
-    <table class="table" id="TablaProducto">
-        <thead>
+
+<table class="table" id="TablaProducto">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            @*<th></th>*@
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Imagen)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Descripcion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Marca)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tipo)
-                </th>
-                @*<th></th>*@
-                <th></th>
+                <td>
+                    <img class="img-responsive" id="image" src="@item.Imagen" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a><br />
+                    <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
+                    <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
+                </td>
+
+
+
             </tr>
-        </thead>
-
-        <tbody>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <img class="img-responsive" id="image" src="@item.Imagen" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
-
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Marca)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipo)
-                    </td>
-                    <td>
-                        <a href="/Producto/Detalle/@item.Id" class="btn btn-secondary"> Detalle</a><br />
-                        <br /> <a href="/Producto/Modificar/@item.Id" class="btn btn-warning"> Modificar</a><br />
-                        <br /><a href="/Producto/Eliminar/@item.Id" class="btn btn-danger"> Eliminar</a><br />
-                    </td>
-                  
-
-
-                </tr>
-            }
-        </tbody>
-
-    </table>
-
-    <a href="@Url.Action("Agregar")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
-
-    <style>
-        #image {
-            width: 400px;
-            height: 350px;
         }
-    </style>
+    </tbody>
+
+</table>
+
+<a href="@Url.Action("Agregar")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Agregar" /></a>
+
+
+
+
+
+
+<style>
+    #image {
+        width: 400px;
+        height: 350px;
+    }
+</style>
 
 
 
@@ -109,3 +114,4 @@
     </script>
 
 }
+

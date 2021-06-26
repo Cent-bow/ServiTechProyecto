@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Protocols;
 using ServiTech.Data;
 using ServiTech.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +23,8 @@ namespace ServiTech.Controllers
             _logger = logger;
             _db = db;
         }
+
+      
         public IActionResult Index(ProductoIndexViewModel input)
         {
             IEnumerable<Producto> productos = _db.Productos;
@@ -115,19 +121,17 @@ namespace ServiTech.Controllers
             return View(output);
         }
 
-        public IActionResult NuestrosProductos()
+
+
+        public ActionResult NuestrosProductos()
         {
-            var Producto = _db.Productos;
            
-            return View(Producto);
+            return View();
         }
 
 
-        public IActionResult NuestrosProductos(int id)
-        {
-            var Producto = _db.Productos.Find(id);
-            return View(Producto);
-        }
+
+      
 
 
 
