@@ -25,6 +25,7 @@
 
 
 
+
     <!-- Navigation-->
     <!-- Navbar -->
     <!-- Navbar -->
@@ -77,21 +78,36 @@
 
                 <!-- Icons -->
                 <div>
-                    <ul class="navbar-nav d-flex flex-row me-1">
-                        <li class="nav-item me-3 me-lg-0">
+                    @*<ul class="navbar-nav d-flex flex-row me-1">
+                                <li class="nav-item me-3 me-lg-0">
 
 
 
-                            <a class="nav-link" href="#">
-                                <span class="badge badge-pill bg-danger">0</span>
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
+                                    <a class="nav-link" href="#">
+                                        <span class="badge badge-pill bg-danger">0</span>
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
 
-                        </li>
+                                </li>
 
-                    </ul>
+                            </ul>
+                        </div>*@
+
+
+                    <div class="float-right" id="carrito">
+                        <i class=" fas fa-shopping-cart" style="color: #000000"></i><span class="badge badge-pill bg-danger" id="cantEnCarrito">0</span>
+                    </div>
+
+                    <style>
+                        #carrito {
+                            padding: 5px;
+                        }
+                    </style>
+
+
+
+
                 </div>
-
             </div>
         </div>
         <!-- Container wrapper -->
@@ -115,22 +131,34 @@
                     <li class="nav-item"><a class="nav-link" href="/Home/Contactanos">Contactanos</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="/Producto/NuestrosProductos">Nuestros Productos</a></li>
-                    </ul>
-                    </div>
+                </ul>
             </div>
-        
-                    </nav>
-                    <!-- Page Content-->
+        </div>
 
-                    <section class="py-5">
-                        <div class="container">
-                            <main role="main" class="pb-3">
-                                @RenderBody()
-                            </main>
-                        </div>
-                    </section>
+    </nav>
+    <!-- Page Content-->
+
+    <section class="py-5">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </section>
 
     <footer></footer>
 
-    </body>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Bootstrap core JS-->
+  
+    <!-- Core theme JS-->
+    <script src="~/js/scripts.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+
+</body>
 </html>

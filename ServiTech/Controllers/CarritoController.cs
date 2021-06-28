@@ -8,9 +8,22 @@ namespace ServiTech.Controllers
 {
     public class CarritoController : Controller
     {
+
+        
         public IActionResult Index()
         {
             return View();
         }
+
+        [HttpPost]
+
+        public IActionResult AgregarAlCarrito(int ProductoId)
+        {
+            return Json(new { Result = true });
+        }
+
+
+
+
     }
 }

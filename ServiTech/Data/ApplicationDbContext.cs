@@ -17,7 +17,9 @@ namespace ServiTech.Data
 
         public virtual DbSet<Tipoempleado> TipoEmpleadoes { get; set; }
 
-       
+
+
+
 
 
 

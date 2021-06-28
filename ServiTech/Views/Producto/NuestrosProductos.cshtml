@@ -7,37 +7,69 @@
 
 @model IEnumerable<Producto>
 
+<tbody>
+    <div class="container">
 
-<div class="container">
+        <div class="row">
 
-    <div class="row">
-
-        @foreach (var item in Model)
-        {
+            @foreach (var item in Model)
+            {
 
 
-            <div class="col-lg-4">
+                <div class="col-lg-4">
 
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" id="img" src="@item.Imagen" alt="Card image cap">
-                    <div class="card-body">
-                        <center> <h5 class="card-title"> @item.Nombre</h5></center>
-                        <center>   <p class="card-text">$ @item.Precio </p></center> <br/>
-                        <center> <a href="#" class="btn btn-block border-dark">Agregar al carrito</a></center> <p/>
-                        <center><a href="/Producto/DetalleUsuario" class="btn btn-block border-dark" >Ver detalle</a></center>
+                    <div class="card" style="width: 18rem;">
+                    
+                        <img class="card-img-top" id="img" src="@item.Imagen" alt="Card image cap">
+                        <div class="card-body">
+                            <center> <h5 class="card-title"> @item.Nombre</h5></center>
+                            <center>   <p class="card-text">$ @item.Precio </p></center> <br />
+                            <center> <a href="#" class="btn btn-block border-dark btn-agregar-carrito">Agregar al carrito</a></center> <p />
+                            <center><a href="/Producto/DetalleUsuario/@item.Id" class="btn btn-block border-dark">Ver detalle</a></center>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
 
-        }
+            }
+        </div>
     </div>
-    </div>
+    
+</tbody>
 
 <style>
-    #img{
-        width:286px;
-        height:220px;
-
+    #img {
+        width: 286px;
+        height: 220px;
     }
 </style>
+
+
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            
+            $('.btn-agregar-carrito').click(function () {
+
+                var productoId = $(this).data('producto');
+
+                $.post('/Carrito/AgregarAlCarrito/', { ProductoId: productoId }, function (respuesta) {
+                    if (respuesta.result === true) {
+
+                        var badgeCarrito = $('#cantEnCarrito');
+
+                        var cantidad = parseInt(badgeCarrito.text());
+                        cantidad++
+                        badgeCarrito.text(cantidad);
+                    }
+                });
+            });
+
+        });
+
+    </script>
+}
