@@ -25,8 +25,6 @@ namespace ServiTech.Controllers
         }
 
 
-
-
         [Authorize(Roles = "Admin")]
         public IActionResult CrearRole()
         {
