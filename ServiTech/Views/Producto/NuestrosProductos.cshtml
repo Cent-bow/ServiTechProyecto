@@ -19,12 +19,12 @@
             <div class="col-lg-4">
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="@item.Imagen" alt="Card image cap">
+                    <img class="card-img-top" id="img" src="@item.Imagen" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title @item.Nombre</h5>
-                        <p class="card-text">@item.Descripcion </p>
-                        <a href="#" class="btn btn-primary">Agregar al carrito</a> <br />
-                        <br /> <a href="#" class="btn btn-primary">Ver detalle</a>
+                        <center> <h5 class="card-title"> @item.Nombre</h5></center>
+                        <center>   <p class="card-text">$ @item.Precio </p></center> <br/>
+                        <center> <a href="#" class="btn btn-block border-dark">Agregar al carrito</a></center> <p/>
+                        <center><a href="/Producto/DetalleUsuario" class="btn btn-block border-dark" >Ver detalle</a></center>
                     </div>
 
                 </div>
@@ -33,3 +33,11 @@
         }
     </div>
     </div>
+
+<style>
+    #img{
+        width:286px;
+        height:220px;
+
+    }
+</style>

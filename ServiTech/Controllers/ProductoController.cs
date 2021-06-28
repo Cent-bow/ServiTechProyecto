@@ -128,7 +128,12 @@ namespace ServiTech.Controllers
             return View(productos);
         }
 
-      
+
+        public IActionResult DetalleUsuario()
+        {
+            var productos = _db.Productos;
+            return View(productos);
+        }
 
 
 
