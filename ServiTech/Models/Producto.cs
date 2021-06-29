@@ -39,6 +39,14 @@ namespace ServiTech.Models
         [Display(Name = "Fecha Activo")]
         public DateTime? FechaActivo { get; set; }
 
+        [Display(Name = "Color del producto")]
+        public string Color { get; set; }
+
+
+        [Display(Name = "Stock del producto")]
+        public int Stock { get; set; }
+
+
 
 
 
