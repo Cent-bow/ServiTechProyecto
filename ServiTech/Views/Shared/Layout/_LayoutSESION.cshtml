@@ -259,13 +259,22 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- Bootstrap core JS-->
-  
     <!-- Core theme JS-->
     <script src=""></script>
     <!-- Contact form JavaScript-->
     <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the assets/mail/contact_me.php file.-->
     <script src="~/assets/mail/jqBootstrapValidation.js"></script>
     <script src="~/assets/mail/contact_me.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('.btn-search').click(function () {
+                window.location = "/Producto/NuestrosProductos?Nombre=" + $('#buscador').val();
+
+            });
+        });</script>
 
 
 

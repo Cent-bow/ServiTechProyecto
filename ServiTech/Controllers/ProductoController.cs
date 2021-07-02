@@ -39,29 +39,35 @@ namespace ServiTech.Controllers
         //en la tabla.
         public IActionResult Index(ProductoIndexViewModel input)
         {
-            IEnumerable<Producto> productos = _db.Productos;
+            //IEnumerable<Producto> productos = _db.Productos;
 
-            if (input.TipoProducto == null)
-            {
-                productos = _db.Productos;
-            }
-            else
-            {
-                productos = _db.Productos.Where(a => a.Tipo == input.TipoProducto.Value);
-            }
+            //if (input.TipoProducto == null)
+            //{
+            //    productos = _db.Productos;
+            //}
+            //else
+            //{
+            //    productos = _db.Productos.Where(a => a.Tipo == input.TipoProducto.Value);
+            //}
 
-            if(!string.IsNullOrEmpty(input.Nombres))
-            {
-                productos = _db.Productos.Where(a => a.Nombre.ToUpper().Contains(input.Nombres.ToUpper()));
-            }
+            //if (!string.IsNullOrEmpty(input.Nombres))
+            //{
+            //    productos = _db.Productos.Where(a => a.Nombre.ToUpper().Contains(input.Nombres.ToUpper()));
+            //}
 
-           
-            return View(productos);
+
+            //return View(productos);
+
+            //var producto = _db.Productos;
+            //return View(producto);
+
+            return View();
         }
 
       
         public IActionResult Agregar()
         {
+           
             return View();
               
         }
@@ -143,13 +149,29 @@ namespace ServiTech.Controllers
         }
 
         //Este metodo sirve para poder colocar los foreach, ya que estoy diciendo:
-        //la variable producto es igual a mi pase tabla productos en la base de datos.
+        //la variable producto es igual a mi Base tabla productos en la base de datos.
         //Con este metodo tengo que usar un Ienumerable y llamar a la clase Producto.
         //Los IEnumerable pueden ser recorridos o enumerados con la sentencia foreach.
 
-        public IActionResult NuestrosProductos()
+        public IActionResult NuestrosProductos(ProductoIndexViewModel input)
         {
-            var productos = _db.Productos;
+            IEnumerable<Producto> productos = _db.Productos;
+
+            if (input.TipoProducto == null)
+            {
+                productos = _db.Productos;
+            }
+            else
+            {
+                productos = _db.Productos.Where(a => a.Tipo == input.TipoProducto.Value);
+            }
+
+            if (!string.IsNullOrEmpty(input.Nombres))
+            {
+                productos = _db.Productos.Where(a => a.Nombre.ToUpper().Contains(input.Nombres.ToUpper()));
+            }
+
+
             return View(productos);
         }
 

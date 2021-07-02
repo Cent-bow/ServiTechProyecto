@@ -56,6 +56,7 @@
 
                         <input type="search"
                                id="buscador"
+                               name="buscador"
                                class="form-control rounded"
                                placeholder="Buscar"
                                aria-label="Search"
@@ -64,11 +65,9 @@
                                float: right !important;
                                " />
 
-                        @*<span class="input-group-text border-0" id="search-addon">
-                                <i class="fas fa-search"></i>
-                            </span>*@
 
-                        <button id="search-button" type="button" class="btn btn-danger">
+
+                        <button type="button" class="btn btn-danger btn-search">
                             <i class="fas fa-search"></i>
                         </button>
 
@@ -76,22 +75,23 @@
                 </div>
 
 
+
                 <!-- Icons -->
                 <div>
                     @*<ul class="navbar-nav d-flex flex-row me-1">
-                                <li class="nav-item me-3 me-lg-0">
+                    <li class="nav-item me-3 me-lg-0">
 
 
 
-                                    <a class="nav-link" href="#">
-                                        <span class="badge badge-pill bg-danger">0</span>
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </a>
+                        <a class="nav-link" href="#">
+                            <span class="badge badge-pill bg-danger">0</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
 
-                                </li>
+                    </li>
 
-                            </ul>
-                        </div>*@
+                </ul>
+            </div>*@
 
 
                     <div class="float-right" id="carrito">
@@ -153,9 +153,18 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- Bootstrap core JS-->
-  
     <!-- Core theme JS-->
     <script src="~/js/scripts.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('.btn-search').click(function () {
+                window.location = "/Producto/NuestrosProductos?Nombres=" + $('#buscador').val();
+
+            });
+        });</script>
 
 
     @RenderSection("Scripts", required: false)
