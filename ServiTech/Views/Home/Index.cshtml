@@ -12,21 +12,21 @@
         <div class="row">
             <div class="col-lg-4 mb-4 mb-lg-0">
                 <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
-                    <div class="card-body"><p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p></div>
-                    <div class="card-footer"><a class="btn btn-primary" href="#!">Learn More</a></div>
+                    <h4 class="card-header">Tecnologia</h4>
+                    <div class="card-body"><p class="card-text">Encuentra todo sobre tecnologia</p></div>
+                    <div class="card-footer"><a class="btn btn-primary" id="Teconologiasboton" href="#!">Learn More</a></div>
                 </div>
             </div>
             <div class="col-lg-4 mb-4 mb-lg-0">
                 <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
+                    <h4 class="card-header">Accesorios</h4>
                     <div class="card-body"><p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p></div>
                     <div class="card-footer"><a class="btn btn-primary" href="#!">Learn More</a></div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card h-100">
-                    <h4 class="card-header">Card Title</h4>
+                    <h4 class="card-header">Audio</h4>
                     <div class="card-body"><p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p></div>
                     <div class="card-footer"><a class="btn btn-primary" href="#!">Learn More</a></div>
                 </div>
@@ -55,7 +55,7 @@
                             Podómetro, GPS Monitor de Pasos.
 
                         </p>
-                      
+
                     </div>
                 </div>
             </div>
@@ -152,23 +152,28 @@
                     <li>Alta calidad en el servicio.</li>
                     <li>Productos de última generación.</li>
                 </ul>
-                
+
             </div>
             <div class="col-lg-6">
-                <img class="img-fluid rounded" src="~/assets/img/grupo.jpg"  alt="..." />
+                <img class="img-fluid rounded" src="~/assets/img/grupo.jpg" alt="..." />
             </div>
         </div>
     </div>
 </section>
 <hr class="my-0" />
 
-<!-- Call to Action-->
-<aside class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p></div>
-            <div class="col-md-4"><a class="btn btn-lg btn-secondary btn-block" href="#!">Call to Action</a></div>
-        </div>
-    </div>
-</aside>
 
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('.btn-search').click(function () {
+                window.location = "/Producto/NuestrosProductos?ProductoCategoria=" + $('#Teconologiasboton').val();
+
+            });
+        });
+    </script>
+}

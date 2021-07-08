@@ -19,7 +19,10 @@ namespace ServiTech.Data
 
         public virtual DbSet<DireccionParaEnvio> DireccionesEnvios { get; set; }
 
+        public virtual DbSet<CarritoModelo> Carritos { get; set; }
+
         public virtual DbSet<ModoDePagoTarjeta> PagoConTarjeta { get; set; }
+
 
        //El Dbcontext es lo que realmente me conecta el sql con el visual,
        //cuando creo las tablas aqui las envio con el add-migration y el update-database,
