@@ -12,8 +12,14 @@ namespace ServiTech.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        public string UserName{ get; set; }
+
+        public int ProductoId { get; set; }
+
         public int Cantidad { get; set; }
-        public int PrecioUnitario { get; set; }
+        public decimal PrecioUnitario { get; set; }
+        public decimal Subtotal { get { return PrecioUnitario * Cantidad; } }
 
 
     }

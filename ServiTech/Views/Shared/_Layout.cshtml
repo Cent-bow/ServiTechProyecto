@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject ServiTech.Data.ApplicationDbContext _db
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -73,13 +75,14 @@
 
                     <ul class="navbar-nav" id="carrito">
                         <li class="nav-item">
-                            <i class=" fas fa-shopping-cart" style="color: #000000"></i><span class="badge badge-pill bg-danger" id="cantEnCarrito">0</span>
+                            <i class=" fas fa-shopping-cart" style="color: #000000"></i><span class="badge badge-pill bg-danger" id="cantEnCarrito"> @_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
                         </li>
                     </ul>
 
                 </div>
             </div>
             <!-- Container wrapper -->
+            </div>
     </nav>
     <!-- Navbar -->
 
@@ -100,6 +103,20 @@
                     <li class="nav-item"><a class="nav-link" href="/Home/Contactanos">Contactanos</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="/Producto/NuestrosProductos">Nuestros Productos</a></li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/Producto/NuestrosProductos?ProductoCategoria=0">Audio</a></li>
+                                <li><a class="dropdown-item" href="/Producto/NuestrosProductos?ProductoCategoria=1">Tecnologia</a></li>
+                                <li><a class="dropdown-item" href="/Producto/NuestrosProductos?ProductoCategoria=2">Accesorios</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
 
                     @if (User.IsInRole("Admin"))
                     {
@@ -355,6 +372,12 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+
+            $(document).ready(function () {
+
+                $(".dropdown-toggle").dropdown();
+
+            });
 
             $('.btn-search').click(function () {
                 window.location = "/Producto/NuestrosProductos?Nombres=" + $('#buscador').val();

@@ -18,7 +18,7 @@ namespace ServiTech.Models
 
         public string Descripcion { get; set; }
 
-        public string Precio { get; set; }
+        public decimal Precio { get; set; }
 
         public string Cantidad { get; set; }
 

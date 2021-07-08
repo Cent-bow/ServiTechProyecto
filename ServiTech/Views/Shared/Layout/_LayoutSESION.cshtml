@@ -3,6 +3,7 @@
 *@
 @{
 }
+@inject ServiTech.Data.ApplicationDbContext _db
 
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
     <link rel="icon" type="image/x-icon" href="~/assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-    
+
     <!-- Core theme CSS (includes Bootstrap)-->
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -41,6 +42,20 @@
                     <li class="nav-item"><a class="nav-link" href="/Home/Contactanos">Contactanos</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="/Producto/NuestrosProductos">Nuestros Productos</a></li>
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/Producto/NuestrosProductos?ProductoCategoria=0">Audio</a></li>
+                                <li><a class="dropdown-item" href="/Producto/NuestrosProductos?ProductoCategoria=1">Tecnologia</a></li>
+                                <li><a class="dropdown-item" href="/Producto/NuestrosProductos?ProductoCategoria=2">Accesorios</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
 
 
                     @*<li class="nav-item dropdown">
@@ -269,6 +284,12 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+
+            $(document).ready(function () {
+
+                $(".dropdown-toggle").dropdown();
+
+            });
 
             $('.btn-search').click(function () {
                 window.location = "/Producto/NuestrosProductos?Nombre=" + $('#buscador').val();

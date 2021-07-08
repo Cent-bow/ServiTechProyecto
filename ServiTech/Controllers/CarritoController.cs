@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ServiTech.Controllers
 {
-    
+    [Authorize]
 
     public class CarritoController : Controller
     {
@@ -106,8 +107,16 @@ namespace ServiTech.Controllers
 
         [HttpPost]
 
-        public IActionResult AgregarAlCarrito(int ProductoId)
+        public IActionResult AgregarAlCarrito(CarritoModelo input)
         {
+            var producto = _db.Productos.Find(input.Id);
+            input.PrecioUnitario = producto.Precio;
+            input.UserName = User.Identity.Name;
+            input.Cantidad = 1;
+
+
+            _db.Carritos.Add(input);
+            _db.SaveChanges();
 
             return Json(new { Result = true });
 

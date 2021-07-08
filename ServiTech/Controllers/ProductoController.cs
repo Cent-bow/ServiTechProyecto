@@ -148,6 +148,8 @@ namespace ServiTech.Controllers
         //ProductoIndexViewModel.
         //Con toUpper, si escribo LENOVO o lenovo no habra distincion.
 
+        //IEnumerable es un metodo que sirve para listar Producto.
+
         public IActionResult NuestrosProductos(ProductoIndexViewModel input)
         {
             IEnumerable<Producto> productos = _db.Productos;
@@ -167,7 +169,7 @@ namespace ServiTech.Controllers
 
             }
 
-            if (input.productoCategoria == null)
+            else if (input.productoCategoria == null)
             {
                 productos = _db.Productos;
             }
