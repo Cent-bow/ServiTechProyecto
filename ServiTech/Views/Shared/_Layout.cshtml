@@ -67,22 +67,25 @@
                         </button>
 
                     </form>
+
+
                 </div>
 
 
 
-                <div>
 
-                    <ul class="navbar-nav" id="carrito">
-                        <li class="nav-item">
-                            <i class=" fas fa-shopping-cart" style="color: #000000"></i><span class="badge badge-pill bg-danger" id="cantEnCarrito"> @_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
-                        </li>
-                    </ul>
-
-                </div>
             </div>
             <!-- Container wrapper -->
+
+            <div class="float-right" id="carrito">
+                <a href="/Carrito/Index"> <i class=" fas fa-shopping-cart" style="color: #000000"></i></a><span class="badge badge-pill bg-danger" id="cantEnCarrito">@_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
+
             </div>
+
+        </div>
+
+
+
     </nav>
     <!-- Navbar -->
 

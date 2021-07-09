@@ -9,16 +9,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ServiTech.Controllers;
+using ServiTech.Areas.Identity;
+
 
 namespace ServiTech.Controllers
 {
-    [Authorize]
+
 
     public class CarritoController : Controller
     {
+
+
         private readonly ILogger<CarritoController> _logger;
         private readonly ApplicationDbContext _db;
 
+        //private static Producto pruebaProducto;
         public CarritoController(ILogger<CarritoController> logger, ApplicationDbContext db)
         {
             _logger = logger;
@@ -31,8 +37,8 @@ namespace ServiTech.Controllers
             return View(producto);
         }
 
-       
-        
+
+
 
         //public IActionResult Modificar(int id)
         //{
@@ -50,7 +56,7 @@ namespace ServiTech.Controllers
         //    {
         //        _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
         //        _db.Productos.Where(a => a.Cantidad == a.Cantidad);
-               
+
         //        _db.SaveChanges();
 
         //        return RedirectToAction("Index");
@@ -68,7 +74,7 @@ namespace ServiTech.Controllers
 
         //public IActionResult Editar(int? id)
         //{
-           
+
         //    if (ModelState.IsValid) { 
 
         //    Producto productos = _db.Productos.Find(id);
@@ -79,7 +85,7 @@ namespace ServiTech.Controllers
         //    return RedirectToAction("Index");
         //}
 
-      
+
 
         //public IActionResult Detalle(int id)
         //{
@@ -105,15 +111,20 @@ namespace ServiTech.Controllers
         //    return RedirectToAction("Index");
         //}
 
-        [HttpPost]
+       
+
 
         public IActionResult AgregarAlCarrito(CarritoModelo input)
         {
+
+            IEnumerable<Producto> productoPrueba = _db.Productos;
+
             var producto = _db.Productos.Find(input.Id);
+
             input.PrecioUnitario = producto.Precio;
+            input.Id = producto.Id;
             input.UserName = User.Identity.Name;
             input.Cantidad = 1;
-
 
             _db.Carritos.Add(input);
             _db.SaveChanges();
