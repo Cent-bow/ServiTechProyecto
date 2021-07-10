@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "/Views/Shared/Layout/_LayoutStore.cshtml";
+}
+
+@model IEnumerable<CarritoModelo>
+
+
+
+
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <h2>Carrito</h2>
+        </div>
+        <table class="table-bordered table-striped align-content-center" id="TablaProductos">
+            <thead>
+                <tr>
+
+                    <th>Nombre de usuario</th>
+                    <th>Nombre del producto</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th></th>
+
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.UserName</td>
+                        <td>@p.ProductoName</td>
+                        <td>@p.PrecioUnitario</td>
+                        <td>@p.Cantidad</td>
+
+                        <td class="center">
+
+                            <a href="/Carrito/EliminarProducto" class="btn btn-danger" style="width:100px">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </main>
+</div>
+
+
+
+
+@section Scripts {
+
+
+    <script src="~/lib/datatables.net/jquery.dataTables.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+            $('#TablaProductos').DataTable();
+
+        });</script>
+
+}

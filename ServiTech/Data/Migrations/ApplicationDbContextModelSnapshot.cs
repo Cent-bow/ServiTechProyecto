@@ -235,6 +235,9 @@ namespace ServiTech.Data.Migrations
                     b.Property<int>("ProductoId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ProductoName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 

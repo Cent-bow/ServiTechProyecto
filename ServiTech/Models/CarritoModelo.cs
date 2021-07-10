@@ -15,14 +15,15 @@ namespace ServiTech.Models
 
         public string UserName{ get; set; }
 
+        public string ProductoName { get; set; }
+
         public int ProductoId { get; set; }
 
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
         public decimal Subtotal { get { return PrecioUnitario * Cantidad; } }
 
-        public Producto productoPrueba { get; set; }
-
+       
 
     }
 }

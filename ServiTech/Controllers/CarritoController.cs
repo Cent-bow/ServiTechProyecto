@@ -31,11 +31,6 @@ namespace ServiTech.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
-        {
-            var producto = _db.Productos;
-            return View(producto);
-        }
 
 
 
@@ -94,44 +89,90 @@ namespace ServiTech.Controllers
         //}
 
 
-        //public IActionResult Eliminar(int id)
-        //{
-        //    var output = _db.Productos.Find(id);
-        //    return View(output);
-        //}
+        public IActionResult EliminarCarrito(int id)
+        {
+            var output = _db.Productos.Find(id);
+            return View(output);
+        }
 
 
-        //[HttpPost]
+        [HttpPost]
 
-        //public IActionResult Eliminar(Producto input)
-        //{
-        //    _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-        //    _db.SaveChanges();
+        public IActionResult EliminarCarrito(Producto input)
+        {
+            _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            _db.SaveChanges();
 
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
 
-       
 
+
+        public IActionResult AgregarAlCarrito()
+        {
+            
+            return View();
+            
+        }
+
+        [Authorize]
+        public IActionResult IndexCarrito()
+        {
+            var carritos = _db.Carritos;
+            return View(carritos);
+
+        }
+
+        [HttpPost]
 
         public IActionResult AgregarAlCarrito(CarritoModelo input)
         {
 
-            IEnumerable<Producto> productoPrueba = _db.Productos;
+            var producto = _db.Productos.Find(input.ProductoId);
+            var productoCarrito = _db.Carritos.FirstOrDefault(a => a.UserName == User.Identity.Name && a.ProductoId == input.ProductoId);
 
-            var producto = _db.Productos.Find(input.Id);
+            if (productoCarrito == null)
+            {
 
-            input.PrecioUnitario = producto.Precio;
-            input.Id = producto.Id;
-            input.UserName = User.Identity.Name;
-            input.Cantidad = 1;
+                input.ProductoName = producto.Nombre;
+                input.PrecioUnitario = producto.Precio;
+                input.UserName = User.Identity.Name;
+                input.Cantidad = 1;
+                _db.Carritos.Add(input);
 
-            _db.Carritos.Add(input);
+            }
+            else
+            {
+                productoCarrito.Cantidad += 1;
+                _db.Entry(productoCarrito).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            }
+
             _db.SaveChanges();
 
             return Json(new { Result = true });
-
         }
+
+
+
+        //public IActionResult AgregarAlCarrito(CarritoModelo input)
+        //{
+
+        //    IEnumerable<Producto> productoPrueba = _db.Productos;
+
+        //    var producto = _db.Productos.Find(input.Id);
+
+        //    input.PrecioUnitario = producto.Precio;
+        //    input.Id = producto.Id;
+        //    input.UserName = User.Identity.Name;
+        //    input.Cantidad = 1;
+
+        //    _db.Carritos.Add(input);
+        //    _db.SaveChanges();
+
+        //    return Json(new { Result = true });
+
+        //}
 
     }
 }
