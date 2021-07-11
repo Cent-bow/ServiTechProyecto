@@ -48,16 +48,16 @@
                 <!-- Icons -->
                 @*<div>*@
                 @*<ul class="navbar-nav d-flex flex-row me-1">
-                    <li class="nav-item me-3 me-lg-0">
+                <li class="nav-item me-3 me-lg-0">
 
-                        <a class="nav-link" href="#">
-                            <span class="badge badge-pill bg-danger">0</span>
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>
+                    <a class="nav-link" href="#">
+                        <span class="badge badge-pill bg-danger">0</span>
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
 
-                    </li>
+                </li>
 
-                </ul>*@
+            </ul>*@
                 @*</div>*@
 
 
@@ -90,19 +90,21 @@
                     </form>
                 </div>
             </div>
+
+            <div class="float-right" id="carrito">
+                <a href="/Carrito/indexCarrito"> <i class=" fas fa-shopping-cart" style="color: #000000"></i></a><span class="badge badge-pill bg-danger" id="cantEnCarrito">@_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
+            </div>
+
+            <style>
+                #carrito {
+                    padding: 5px;
+                }
+            </style>
         </div>
 
         <!-- Container wrapper -->
 
-        <div class="float-right" id="carrito">
-            <a href="/Carrito/indexCarrito"> <i class=" fas fa-shopping-cart" style="color: #000000"></i></a><span class="badge badge-pill bg-danger" id="cantEnCarrito">@_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
-        </div>
-
-        <style>
-            #carrito {
-                padding: 5px;
-            }
-        </style>
+       
     </nav>
     <!-- Navbar -->
 
@@ -192,19 +194,3 @@
 
 
 
-<div>
-    <form class="d-flex input-group w-auto">
-
-        <input type="search"
-               id="buscador"
-               class="form-control rounded"
-               placeholder="Buscar"
-               aria-label="Search"
-               aria-describedby="search-addon" />
-
-        <span class="input-group-text border-0" id="search-addon">
-            <i class="fas fa-search"></i>
-        </span>
-
-    </form>
-</div>
