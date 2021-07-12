@@ -22,6 +22,7 @@ namespace ServiTech.Models
 
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
+
         public decimal Subtotal { get { return PrecioUnitario * Cantidad; } }
 
         public decimal Total { get; set; }

@@ -26,7 +26,10 @@ namespace ServiTech.Models
         [Display(Name = "Computadota de juego")]
 
         ComputadorasdeJuego,
-        Reloj
+        Reloj,
+
+        [Display(Name = "Disco duro")]
+        DiscoDuro
 
     }
 }

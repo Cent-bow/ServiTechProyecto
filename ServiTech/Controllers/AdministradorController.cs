@@ -24,6 +24,14 @@ namespace ServiTech.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
+        public IActionResult GraficaAdmi()
+        {
+
+            return View();
+        }
+
+
 
         //[Authorize(Roles = "Admin")]
         public IActionResult CrearRole()
