@@ -13,9 +13,9 @@ namespace ServiTech.Data
             : base(options) { }
 
         public DbSet<Producto> Productos { get; set; }
-        public virtual DbSet<Empleado> Empleadoes { get; set; }
 
-        public virtual DbSet<Tipoempleado> TipoEmpleadoes { get; set; }
+
+
 
         public virtual DbSet<DireccionParaEnvio> DireccionesEnvios { get; set; }
 

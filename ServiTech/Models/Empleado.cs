@@ -29,7 +29,7 @@ namespace ServiTech.Models
         public string Direccion { get; set; }
         public decimal Sueldo { get; set; }
 
-        public virtual Tipoempleado Tipoempleado { get; set; }
+     
 
 
     }

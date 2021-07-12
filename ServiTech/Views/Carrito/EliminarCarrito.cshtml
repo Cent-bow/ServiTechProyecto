@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "/Views/Shared/Layout/_LayoutStore.cshtml";
+}
+@model ServiTech.Models.CarritoModelo
+
+<form method="post" action="/Home/Eliminar" class="form-horizontal">
+    <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+    <input type="hidden" name="ProductoId" id="ProductoId" value="@Model.ProductoId" />
+    <input type="hidden" name="UserName" id="UserName" value="@Model.UserName" />
+    <input type="hidden" name="ProductoName" id="ProductoName" value="@Model.ProductoName" />
+    <input type="hidden" name="PrecioUnitario" id="PrecioUnitario" value="@Model.PrecioUnitario" />
+    <input type="hidden" name="Cantidad" id="Cantidad" value="@Model.Cantidad" />
+    <input type="hidden" name="Subtotal" id="Subtotal" value="@Model.Subtotal" />
+
+    <h1> ¿Esta seguro que desea eliminar el regitro?</h1>
+    <button type="submit" class="btn btn-danger">Eliminar producto del carrito</button>
+    <a href="/Home/Tienda" name="btn-volver" id="btn-volver">Volver</a>
+
+
+    <style>
+        #btn-volver {
+            background-color: #1b6ec2;
+            font-family: Calibri;
+            color: white;
+            font-size: larger;
+            text-align: center;
+            color: #fff;
+            border-radius: 5px;
+            border-color: transparent;
+            display: inline-block;
+            font-weight: 400;
+            width: 100px;
+            height: 35px;
+            box-shadow: aqua;
+        }
+
+            #btn-volver:hover {
+                background-color: midnightblue;
+            }
+    </style>
+
+</form>

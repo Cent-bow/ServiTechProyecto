@@ -19,6 +19,8 @@ namespace ServiTech.Controllers
         
         }
 
+        //Con el metodo IActionResult, puede llamar al Index, y que me retorne a la misma 
+        //vista, esto es debido al que parentesis esta vacio.
         public IActionResult Index()
         {
          
@@ -50,6 +52,11 @@ namespace ServiTech.Controllers
         }
 
         public IActionResult Tecnologia()
+        {
+            return View();
+        }
+
+        public IActionResult Tienda()
         {
             return View();
         }
