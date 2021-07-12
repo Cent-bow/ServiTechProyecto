@@ -37,11 +37,17 @@ namespace ServiTech.Controllers
 
         }
 
-        //le estoy diciendo que la variable carritos, sera igual a la tabla carritos
-        //asi que retorname los registros o datos de la tabla en la base de datos a la vista.
-        //todo esto lo logro con un foreach. Y para hacer esto tengo que loguearme obligado.
+        public IActionResult pago()
+        {
+            return View();
+        }
 
-        [Authorize]
+
+    //le estoy diciendo que la variable carritos, sera igual a la tabla carritos
+    //asi que retorname los registros o datos de la tabla en la base de datos a la vista.
+    //todo esto lo logro con un foreach. Y para hacer esto tengo que loguearme obligado.
+
+    [Authorize]
         public IActionResult IndexCarrito()
         {
             var carritos = _db.Carritos;
@@ -108,8 +114,7 @@ namespace ServiTech.Controllers
             return Json(new { Result = true });
         }
 
-
-
+       
         //Lo de abajo no va  --------------------------------------------------------
 
 

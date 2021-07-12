@@ -24,7 +24,7 @@
                     <th>Precio Unitario</th>
                     <th>Cantidad</th>
                     <th>Subtotal</th>
-                 
+
 
 
                 </tr>
@@ -39,7 +39,7 @@
                         <td>@p.PrecioUnitario</td>
                         <td>@p.Cantidad</td>
                         <td>@p.Subtotal</td>
-                      
+
 
 
 
@@ -57,6 +57,13 @@
     </main>
 </div>
 
+<br/>
+
+<a href="@Url.Action("pago")"> <input type="submit" class="btn btn-primary mb-4 bg-danger" value="Continuar" /></a>
+
+
+
+
 
 @section Scripts {
 
@@ -64,11 +71,11 @@
     <script src="~/lib/datatables.net/jquery.dataTables.js"></script>
 
     <script type="text/javascript">
-    $(document).ready(function () {
+        $(document).ready(function () {
 
             $('#TablaProductos').DataTable();
 
-    });
+        });
 
 
         $(document).on('click', '.btn-eliminar', function (event) {

@@ -29,7 +29,10 @@ namespace ServiTech.Models
         Reloj,
 
         [Display(Name = "Disco duro")]
-        DiscoDuro
+        DiscoDuro,
+
+        [Display(Name = "Funda de celular")]
+        Forros
 
     }
 }
