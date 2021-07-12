@@ -19,19 +19,25 @@
                 </div>
                 <p class="lead">@Model.Descripcion</p>
                 <div class="d-flex">
+
+
                     <a href="@Url.Action("NuestrosProductos", "Producto")" class="btn btn-danger w-50 text-center me-3">
                         <i class="fas fa-undo-alt"></i> Volver
                     </a>
 
 
-                    <button class="btn btn-success btn-agregar-carrito flex-shrink-0 w-50 " type="button">
-                        <i class="fas fa-cart-plus btn-agregar-carrito" data-producto="@Model.Id"></i> Agregar al carrito
-                    </button>
+           
 
+                        <button class="btn btn-success btn-agregar-carrito flex-shrink-0 w-50 " type="button">
+                            <i class="fas fa-cart-plus btn-agregar-carrito" data-producto="@Model.Id"></i> Agregar al carrito
+                        </button>
+                    
+
+
+
+                    </div>
 
                 </div>
-
-            </div>
 
         </div>
 
