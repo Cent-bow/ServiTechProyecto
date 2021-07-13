@@ -5,7 +5,7 @@
 @{
 
     ViewBag.Title = "Detalle";
-    Layout = "/Views/Shared/Layout/_LayoutAdmi.cshtml";
+    Layout = "/Views/Shared/Layout/_LayoutDelAdministrador.cshtml";
 
 }
 
@@ -198,7 +198,7 @@
 
 </div>
 <p>
-    @Html.ActionLink("Modificar", "Producto", new { id = Model.Id }) |
+    @Html.ActionLink("Modificar", "Modificar", new { id = Model.Id }) |
     @Html.ActionLink("Regresar al inventario", "Index")
 </p>
 
