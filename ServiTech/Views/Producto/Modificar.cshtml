@@ -21,6 +21,7 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Imagen, "Escriba la URL de la imagen del producto", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -31,6 +32,7 @@
             </div>
         </div>
 
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, "Nombre del Producto", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,6 +43,8 @@
             </div>
         </div>
 
+        <br/> 
+
         <div class="form-group">
             @Html.LabelFor(model => model.Descripcion, "Descripcion del producto", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -49,6 +53,8 @@
                 @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Marca, "Marca", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -59,7 +65,7 @@
             </div>
         </div>
 
-
+        <br/>
 
 
         <div class="form-group">
@@ -70,6 +76,8 @@
             </div>
         </div>
 
+        <br/>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Categoria, "Categoria del Producto", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -78,6 +86,7 @@
             </div>
         </div>
 
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FechaRegistro, "Fecha de registro", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -87,6 +96,7 @@
             </div>
         </div>
 
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FechaActivo, "Fecha activo", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -96,6 +106,7 @@
             </div>
         </div>
 
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Cantidad, "Cantidad", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -105,6 +116,7 @@
                 @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
             </div>
         </div>
+        <br/>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Precio, "Precio Venta", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -115,6 +127,7 @@
             </div>
         </div>
 
+        <br/>
 
 
         <div class="form-group">
@@ -124,6 +137,8 @@
         </div>
     </div>
 }
+
+<br/>
 
 <div>
 
