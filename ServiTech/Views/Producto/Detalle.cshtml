@@ -14,50 +14,183 @@
 <div>
     <h4>Inventario</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagen)
+
+    @*<table>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </td>
+
+            <td>
+
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(model => model.Marca)
+            </td>
+
+            <td>
+                @Html.DisplayNameFor(model => model.Tipo)
+
+            </td>
 
 
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Categoria)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.FechaActivo)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Marca)
-        </dd>
+            <td>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.Precio)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Categoria)
-        </dd>
+        </tr>
+    </table>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaActivo)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
 
-    </dl>
+
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marca)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Categoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaActivo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+
+        </dl>*@
+
+
+    <form action="/Home/Detalle" class="form-horizontal">
+
+        <font face="Century Gothic"><h1>Información Completa </h1></font><hr /><br />
+
+        <table cellpadding="10" cellspacing="20" border="1">
+
+            <tr>
+               
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th> Cantidad</th>
+                <th> Marca</th>
+                <th> Tipo de producto</th>
+                <th> Categoria</th>
+                <th> Fecha Registro</th>
+                <th> Fecha Activo</th>
+
+
+
+            </tr>
+
+            <tr>
+                <td>@Model.Nombre</td>
+
+                <td>@Model.Descripcion</td>
+
+                <td>@Model.Precio</td>
+
+                <td>@Model.Cantidad</td>
+
+                <td>@Model.Marca</td>
+
+                <td>@Model.Tipo</td>
+
+                <td>@Model.Categoria</td>
+
+                <td>@Model.FechaRegistro</td>
+
+                <td>@Model.FechaActivo</td>
+
+
+
+
+            </tr>
+
+
+
+
+        </table>
+
+
+        <!------------------------------------------------------------------------->
+
+        <br /><hr />
+
+
+        <p> <br /><b>Codigo de producto:</b>  @Model.Id</p>
+
+        <p> <br /><b>Nombre:</b>  @Model.Nombre</p>
+
+        <p>  <b> <br />Descripcion:</b> @Model.Descripcion</p>
+
+        <p>  <b><br />Precio:</b> @Model.Precio</p>
+
+        <p> <b> <br />Cantidad:</b>  @Model.Cantidad</p>
+
+        <p> <b> <br />Marca:</b>  @Model.Marca</p>
+
+        <p><b><br />Tipo de Producto:</b>  @Model.Tipo</p>
+
+        <p> <b><br />Categoria:</b> @Model.Categoria</p>
+
+        <p> <b> <br />Fecha de registro:</b> @Model.FechaRegistro</p>
+
+        <p><b><br />Fecha activo:</b> @Model.FechaActivo</p>
+
+
+    </form>
+    <br />
+
 
 
 </div>
@@ -66,3 +199,31 @@
     @Html.ActionLink("Regresar al inventario", "Index")
 </p>
 
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+
+
+
+<style>
+    #btn-volver {
+        background-color: #1b6ec2;
+        font-family: Calibri;
+        color: white;
+        font-size: larger;
+        text-align: center;
+        color: #fff;
+        border-color: transparent;
+        display: inline-block;
+        font-weight: 400;
+        border-radius: 10px;
+        width: 100px;
+        box-shadow: aqua;
+    }
+
+        #btn-volver:hover {
+            background-color: midnightblue;
+        }
+</style>
