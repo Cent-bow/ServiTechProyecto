@@ -68,7 +68,7 @@
 
 
 
-                        <button type="button" class="btn btn-danger btn-search">
+                        <button type="button" class="btn btn-link btn-search">
                             <i class="fas fa-search"></i>
                         </button>
 
@@ -100,9 +100,10 @@
 
                 </div>
             </div>
+           
 
             <div class="float-right" id="carrito">
-                <a href="/Carrito/indexCarrito"> <i class=" fas fa-shopping-cart" style="color: #000000"></i></a><span class="badge badge-pill bg-danger" id="cantEnCarrito">@_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
+                <a href="/Carrito/indexCarrito"> <i class=" fas fa-shopping-cart" style="color: #000000"></i></a><span class="badge badge-pill bg-info" id="cantEnCarrito">@_db.Carritos.Where(a => a.UserName == User.Identity.Name).Count()</span>
 
             </div>
 
@@ -123,7 +124,7 @@
 
 
 
-    <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+    <nav class="navbar navbar-expand-lg  navbar-dark" style=" background-color: #0A49AF;">
         <div class="container">
 
             <a class="navbar-brand" href="/Home/Tienda">ServiTech</a>
@@ -142,7 +143,7 @@
 
                     <li class="nav-item">
                         <div class="dropdown">
-                            <button class="btn btn-secondary btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style=" background-color: #0A49AF;">
                                 Categorias
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
